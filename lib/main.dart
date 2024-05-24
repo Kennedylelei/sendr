@@ -54,15 +54,17 @@ class _SendSMSPageState extends State<SendSMSPage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'SENDR',
+          'SendR',
           style: TextStyle(
-            fontSize: 24,
-            fontWeight: FontWeight.bold,
-            letterSpacing: 1.5,
+            fontSize: 20,
+            fontWeight: FontWeight.w700,
+            letterSpacing: 1.7,
           ),
         ),
         centerTitle: true,
         backgroundColor: Colors.blueAccent,
+        elevation: 7.0, // Add shadow below the AppBar
+        shadowColor: Colors.black.withOpacity(1), // Adjust shadow color
       ),
       body: Padding(
         padding: const EdgeInsets.all(20.0),
@@ -70,39 +72,53 @@ class _SendSMSPageState extends State<SendSMSPage> {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             const SizedBox(height: 20),
-            TextField(
-              controller: _phoneController,
-              decoration: InputDecoration(
-                labelText: 'Phone Number',
-                hintText: 'Enter phone number',
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10.0),
+            Material(
+              elevation: 4.0,
+              borderRadius: BorderRadius.circular(10.0),
+              shadowColor: Colors.black.withOpacity(0.5),
+              child: TextField(
+                controller: _phoneController,
+                decoration: InputDecoration(
+                  labelText: 'Phone Number',
+                  hintText: 'Enter phone number',
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10.0),
+                  ),
+                  prefixIcon: const Icon(Icons.phone),
+                  filled: true, // Ensure the background is filled
+                  fillColor: Colors.white, // Set the fill color to white
                 ),
-                prefixIcon: const Icon(Icons.phone),
+                keyboardType: TextInputType.phone,
               ),
-              keyboardType: TextInputType.phone,
             ),
             const SizedBox(height: 20),
-            TextField(
-              controller: _messageController,
-              decoration: InputDecoration(
-                labelText: 'Message',
-                hintText: 'Enter your text',
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10.0),
+            Material(
+              elevation: 4.0,
+              borderRadius: BorderRadius.circular(10.0),
+              shadowColor: Colors.black.withOpacity(0.5),
+              child: TextField(
+                controller: _messageController,
+                decoration: InputDecoration(
+                  labelText: 'Message',
+                  hintText: 'Enter your text',
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10.0),
+                  ),
+                  prefixIcon: const Icon(Icons.message),
+                  filled: true, // Ensure the background is filled
+                  fillColor: Colors.white, // Set the fill color to white
                 ),
-                prefixIcon: const Icon(Icons.message),
+                keyboardType: TextInputType.text,
+                maxLines: 5,
               ),
-              keyboardType: TextInputType.text,
-              maxLines: 5,
             ),
             const SizedBox(height: 20),
             Center( // Center the button horizontally
               child: SizedBox(
-                width: 120, // Set the width to your desired value
+                width: 150, // Set the width to your desired value
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    padding: const EdgeInsets.symmetric(vertical: 10.0),
+                    padding: const EdgeInsets.symmetric(vertical: 15.0),
                     textStyle: const TextStyle(fontSize: 18),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(15.0),
